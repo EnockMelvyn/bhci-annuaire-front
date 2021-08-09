@@ -1,0 +1,132 @@
+/* You can add global styles to this file, and also import other style files */
+@use '~@angular/material' as mat ;
+
+@import '@angular/material/theming';
+@include mat-core();
+
+
+
+$blue-bhci-palette: (
+    50: #EDF0FD,
+    100:#C8D3F9,
+    200:#A3B5F5,
+    300:#7E97F1,
+    400:#5A7AED,
+    500:#355CE9,
+    600:#1843DC,
+    700:#1232A5,
+    800:#0C216E,
+    900: #081649,
+    A100:#DAE1FB,
+    A200:#91A6F3,
+    A400:#476BEB,
+    A700: #102D93,
+    contrast: (
+        50: rgba(black, 0.87),
+        100:rgba(black, 0.87),
+        200:rgba(black, 0.87),
+        300:rgba(black, 0.87),
+        400:rgba(black, 0.87),
+        500:rgba(black, 0.87),
+        600:rgba(black, 0.87),
+        700:rgba(black, 0.87),
+        800:rgba(black, 0.87),
+        900: rgba(black, 0.87),
+        A100:rgba(black, 0.87),
+        A200:rgba(black, 0.87),
+        A400:rgba(black, 0.87),
+        A700: rgba(black, 0.87)
+    )
+);
+$yellow-bhci-palette: (
+    50: #FAF7F0,
+    100:#F0E7D1,
+    200:#E6D6B3,
+    300:#DBC694,
+    400:#D1B675,
+    500:#C7A557,
+    600:#AD8B3A,
+    700:#997A33,
+    800:#7A6229,
+    900: #4D3D19,
+    A100:#F5EFE0,
+    A200:#E0CEA3,
+    A400:#CCAD66,
+    A700: #8A6E2E,
+    contrast: (
+        50: rgba(black, 0.87),
+        100:rgba(black, 0.87),
+        200:rgba(black, 0.87),
+        300:rgba(black, 0.87),
+        400:rgba(black, 0.87),
+        500:rgba(black, 0.87),
+        600:rgba(black, 0.87),
+        700:rgba(black, 0.87),
+        800:rgba(black, 0.87),
+        900: rgba(black, 0.87),
+        A100:rgba(black, 0.87),
+        A200:rgba(black, 0.87),
+        A400:rgba(black, 0.87),
+        A700: rgba(black, 0.87)
+    )
+);
+$green-bhci-palette: (
+    50: #F2FBEE,
+    100:#D9F4CD,
+    200:#C0EDAB,
+    300:#A7E58A,
+    400:#8EDE68,
+    500:#74D747,
+    600:#5EC92C,
+    700:#4EA725,
+    800:#3E841D,
+    900: #1F430F,
+    A100:#E6F8DE,
+    A200:#B3E99B,
+    A400:#81DA58,
+    A700: #469721,
+    contrast: (
+        50: rgba(black, 0.87),
+        100:rgba(black, 0.87),
+        200:rgba(black, 0.87),
+        300:rgba(black, 0.87),
+        400:rgba(black, 0.87),
+        500:rgba(black, 0.87),
+        600:rgba(black, 0.87),
+        700:rgba(black, 0.87),
+        800:rgba(black, 0.87),
+        900: rgba(black, 0.87),
+        A100:rgba(black, 0.87),
+        A200:rgba(black, 0.87),
+        A400:rgba(black, 0.87),
+        A700: rgba(black, 0.87)
+    )
+);
+
+$my-primary: mat.define-palette($blue-bhci-palette, 900, 700, 500);
+$my-accent: mat.define-palette($yellow-bhci-palette, A200, A100, A400);
+
+
+// $custom-primary-light: #234DE7;
+// $custom-primary: #081649;
+// $my-primary: #081649;
+// $custom-primary-dark: #020612;
+
+// $custom-accent: #3E841D;
+// $my-accent: #3E841D;
+
+// $custom-secondary-light: #EBDEC2;
+// $custom-secondary: #AD8B3A;
+// $my-secondary: #AD8B3A;
+// $custom-secondary-dark: #7A6229;
+
+$my-theme: mat.define-dark-theme((
+   color: ( 
+       primary: $my-primary,
+       accent: $my-accent
+    )
+));
+
+@include angular-material-theme($my-theme);
+// @include angular-material-button($my-theme);
+// @include mat.button-theme($my-theme);

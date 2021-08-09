@@ -1,0 +1,32 @@
+<mat-card style="height: 1000px;">
+    <mat-card-header>
+        <mat-card-title> Formulaire MAJ annuaire</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="formUpload">
+            <!-- <mat-form-field> -->
+                <input mat-input type="file" id="file" placeholder="annuaire.xlsx" (change)="onFileChange($event)" >
+                
+            <!-- </mat-form-field>    -->
+            <button type="submit" *ngIf="file" mat-button color="primary" (click)="onImport()"> importer le fichier</button>
+            <button mat-button *ngIf="dataSource" color="primary" (click)="uploadFile()"> Valider </button>
+            
+        </form>
+
+        <table mat-table [dataSource]="dataSource" *ngIf="dataSource" class="table">
+                <mat-text-column name="DIRECTIONS"></mat-text-column>
+                <mat-text-column name="NOMS"></mat-text-column>
+                <mat-text-column name="FONCTIONS"></mat-text-column>
+                <mat-text-column name="POSTES"></mat-text-column>
+                <mat-text-column name="MATRICULES"></mat-text-column>
+            
+
+            <tr mat-header-row *matHeaderRowDef="colonnes"></tr>
+            <tr mat-row *matRowDef="let row; columns: colonnes"></tr>
+
+            <!-- <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4"> Aucune ligne correspondante pour: {{ input.value }}</td>
+            </tr> -->
+        </table>
+    </mat-card-content> 
+</mat-card>
