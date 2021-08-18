@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <!-- <app-toolbar [inputSideNav]="sidenav"></app-toolbar> -->
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" opened>
+      <app-side-nav></app-side-nav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <!-- <div style="height: 100%;"> -->
+        <router-outlet></router-outlet>
+      <!-- </div> -->
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+
+
+
