@@ -1,11 +1,22 @@
 mat-sidenav{
     background-color: #081649;
     color: white;
-    width: 230px;
+    width: 250px;
     border-radius: 10px;
     border-right: none;
 }
 
 mat-sidenav-container{
     height: 100vh;
+    background-color: #F0E7D1;
 }
+
+mat-card-content{
+    background-color: #F0E7D1;
+}
+
+.content{
+    background-color: #F0E7D1;
+    padding-top: 5px;
+}
+

@@ -1,4 +1,4 @@
-<mat-card >
+<mat-card>
     <mat-card-header>
         <mat-card-title> Formulaire MAJ annuaire 2</mat-card-title>
     </mat-card-header>
@@ -26,19 +26,21 @@
             </div>
         </form>
 
-        <table mat-table [dataSource]="dataSource" *ngIf="dataSource" class="table">
-                <mat-text-column name="DIRECTIONS"></mat-text-column>
-                <mat-text-column name="NOMS"></mat-text-column>
-                <mat-text-column name="FONCTIONS"></mat-text-column>
-                <mat-text-column name="MATRICULES"></mat-text-column>
-                <mat-text-column name="POSTES"></mat-text-column>
+        <div class="table-container">
+            <table mat-table [dataSource]="dataSource" *ngIf="dataSource" class="table table-striped">
+                    <mat-text-column name="DIRECTIONS"></mat-text-column>
+                    <mat-text-column name="NOMS"></mat-text-column>
+                    <mat-text-column name="FONCTIONS"></mat-text-column>
+                    <mat-text-column name="MATRICULES"></mat-text-column>
+                    <mat-text-column name="POSTES"></mat-text-column>
 
-            <tr mat-header-row *matHeaderRowDef="colonnes"></tr>
-            <tr mat-row *matRowDef="let row; columns: colonnes"></tr>
+                <tr mat-header-row *matHeaderRowDef="colonnes; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: colonnes"></tr>
 
-            <!-- <tr class="mat-row" *matNoDataRow>
-                <td class="mat-cell" colspan="4"> Aucune ligne correspondante pour: {{ input.value }}</td>
-            </tr> -->
-        </table>
+                <!-- <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4"> Aucune ligne correspondante pour: {{ input.value }}</td>
+                </tr> -->
+            </table>
+        </div>
     </mat-card-content> 
 </mat-card>

@@ -56,9 +56,18 @@ $bleu_bhci : #081649;
     overflow: hidden;
 }
 
-.logo-img img {
-    width: 60px;
+.logo-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: white;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+.logo-img img {
+    height: 50px;
+    
 }
 
 .nav li>a {
@@ -100,10 +109,17 @@ $bleu_bhci : #081649;
     border-radius: 50%;
 }
 
-button .mat-button{
+.menu-button{
+    height: 50px;
     width: 100%;
     font-size: 1rem;
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    
+}
+
+.menu-button:hover{
+    background-color: white;
+    color: #081649;
 }
