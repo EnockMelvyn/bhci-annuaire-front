@@ -18,6 +18,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatPaginatorModule } from '@angular/material/paginator'
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AddContactFormComponent } from './component/add-contact-form/add-contact-form.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
@@ -48,7 +49,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     MatCardModule,
     FormsModule,
     ReactiveFormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent],

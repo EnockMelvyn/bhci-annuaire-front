@@ -1,6 +1,6 @@
 <div class="sidenav" color="my-primary">
     <div class="logo">
-        <a href="/contacts" class="simple-text logo-mini">
+        <a href="/contacts" class="logo-mini">
             <div class="logo-img">
                 <img src="../../../assets/logo_bhci.png" />
             </div>
@@ -9,8 +9,12 @@
             Annuaire BHCI
         </a>
     </div>
+
+    <button mat-button color="accent" class=" menu-button"><a routerLink="/contacts" > Liste des contacts</a></button>
     <ul class="nav">
-        <li><a routerLink="/contacts" class="active"> Liste des contacts</a></li>
+        <li><a routerLink="/contacts" class=" menu-button active"> Liste des contacts</a></li>
+        
+
         <li><a routerLink="/importAnnuaire" > MAJ annuaire</a></li>
     </ul>
 
