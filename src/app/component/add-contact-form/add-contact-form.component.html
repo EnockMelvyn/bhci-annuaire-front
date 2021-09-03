@@ -1,6 +1,6 @@
 <mat-card>
     <mat-card-header>
-        <mat-card-title> Formulaire MAJ annuaire 2</mat-card-title>
+        <mat-card-title> Chargement base annuaire</mat-card-title>
     </mat-card-header>
     <mat-card-content>
         <form [formGroup]="formUpload">
@@ -17,7 +17,7 @@
                 <p >
                     Merci d'importer un fichier .xlsx. Ce fichier devra contenir les colonnes :
                 </p> 
-                <h4 > DIRECTIONS ,  NOMS ,  FONCTIONS ,  POSTES ,  MATRICULES  </h4>
+                <h4 > ORDRE   ,   DIRECTIONS   ,   NOMS   ,   FONCTIONS   ,   POSTES  </h4>
             </div>
             <br>
             <br>
@@ -28,11 +28,12 @@
 
         <div class="table-container">
             <table mat-table [dataSource]="dataSource" *ngIf="dataSource" class="table table-striped">
-                    <mat-text-column name="DIRECTIONS"></mat-text-column>
-                    <mat-text-column name="NOMS"></mat-text-column>
-                    <mat-text-column name="FONCTIONS"></mat-text-column>
-                    <mat-text-column name="MATRICULES"></mat-text-column>
-                    <mat-text-column name="POSTES"></mat-text-column>
+                <mat-text-column name="ORDRE"></mat-text-column>
+                <mat-text-column name="DIRECTIONS"></mat-text-column>
+                <mat-text-column name="NOMS"></mat-text-column>
+                <mat-text-column name="FONCTIONS"></mat-text-column>
+                <mat-text-column name="MATRICULES"></mat-text-column>
+                <mat-text-column name="POSTES"></mat-text-column>
 
                 <tr mat-header-row *matHeaderRowDef="colonnes; sticky: true"></tr>
                 <tr mat-row *matRowDef="let row; columns: colonnes"></tr>

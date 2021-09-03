@@ -15,7 +15,7 @@ import * as xlsx from 'xlsx';
 
 export class AddContactFormComponent implements OnInit {
 
-  colonnes= ["DIRECTIONS", "NOMS", "FONCTIONS", "POSTES","MATRICULES"];
+  colonnes= ["DIRECTIONS", "NOMS", "FONCTIONS", "POSTES","MATRICULES", "ORDRE"];
   dataSource: any;
   formUpload: FormGroup;
   file: File;
@@ -94,7 +94,8 @@ export class AddContactFormComponent implements OnInit {
              "fonction": val["FONCTIONS"],
              "posteTel": val["POSTES"], 
              "matricule": val["MATRICULES"],
-             "direction": val["DIRECTIONS"]
+             "direction": val["DIRECTIONS"],
+             "numOrdre": val["ORDRE"]
             }
             )
         }

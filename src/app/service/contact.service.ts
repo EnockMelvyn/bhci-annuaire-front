@@ -19,7 +19,16 @@ export class ContactService {
   public importContactsFromExcelFile(formData: any): Observable<any> {
     return this.http.post<any>(`${this.apiServerUrl}/api/contacts/uploadExcel`, formData);
   }
+
   public createContactFromListe(contacts: Contact[]): Observable<any> {
     return this.http.post<any>(`${this.apiServerUrl}/api/contacts`, contacts);
+  }
+  
+  public updateContact(idContact: number,contact: Contact): Observable<any> {
+    return this.http.put<any>(`${this.apiServerUrl}/api/contacts/`+idContact, contact);
+  }
+  
+  public deleteContact(idContact: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiServerUrl}/api/contacts/`+idContact);
   }
 }

@@ -5,5 +5,6 @@ export interface Contact {
     posteTel?: string
     direction?: string
     matricule?: string
+    numOrdre?: string
 }
 

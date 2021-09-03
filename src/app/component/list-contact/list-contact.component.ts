@@ -1,9 +1,11 @@
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Contact } from 'src/app/model/contact';
 import { ContactService } from 'src/app/service/contact.service';
+import { FormContactComponent } from '../form-contact/form-contact.component';
 
 @Component({
   selector: 'app-list-contact',
@@ -13,19 +15,52 @@ import { ContactService } from 'src/app/service/contact.service';
 export class ListContactComponent implements OnInit {
   @ViewChild(MatPaginator) paginator : MatPaginator;
   dataSource: MatTableDataSource<Contact> = new MatTableDataSource()
-  colonnes= ['direction','nom', 'fonction', 'matricule','posteTel']
+  colonnesULP= ['direction','nom', 'fonction','posteTel']
+  colonnesADMIN= ['numOrdre','direction','nom', 'fonction','posteTel','actions']
 
   contacts: Contact[] = [];
 
-  constructor(private contactService : ContactService
+  constructor(private contactService : ContactService,
+    public dialog: MatDialog
     ) { }
 
   ngOnInit(): void {
     this.getAllContacts();
-    console.log(this.contacts)
   }
 
+  public openDialogUpdateContact(contactToUpdate:Contact): void {
+    const dialogRef = this.dialog.open(FormContactComponent, {
+      data: {contactToUpdate: contactToUpdate }
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("The dialog was closed")
+      this.getAllContacts();
+    });
+  }
+
+  public openDialogCreateContact(): void {
+    const dialogRef = this.dialog.open(FormContactComponent, {
+      data: {contactToUpdate: {} }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.getAllContacts();
+    });
+  }
+  
+  public deleteContact(idContact: number): void{
+    this.contactService.deleteContact(idContact).subscribe(
+      (response: HttpResponse<string>) => {
+        alert("Contact supprimé!!!")
+        this.ngOnInit()
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message)
+      }
+    )
+  }
   public getAllContacts(): void{
     this.contactService.getAllContacts().subscribe(
       (response: Contact[]) => {

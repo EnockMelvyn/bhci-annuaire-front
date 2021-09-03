@@ -20,9 +20,11 @@ import { MatPaginatorModule } from '@angular/material/paginator'
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AddContactFormComponent } from './component/add-contact-form/add-contact-form.component'
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormContactComponent } from './component/form-contact/form-contact.component'
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     SideNavComponent,
     DashboardComponent,
     ToolbarComponent,
-    AddContactFormComponent
+    AddContactFormComponent,
+    FormContactComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],

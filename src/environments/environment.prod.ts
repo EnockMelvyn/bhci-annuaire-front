@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'http://192.168.200.17:8080/annuaireBackend'
+  apiBaseUrl: 'http://annuaire.bhci.ci:8080/annuaireBackend'
 };
