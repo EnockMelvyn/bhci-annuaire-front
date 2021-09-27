@@ -30,7 +30,7 @@ export class ListContactComponent implements OnInit {
 
   public openDialogUpdateContact(contactToUpdate:Contact): void {
     const dialogRef = this.dialog.open(FormContactComponent, {
-      data: {contactToUpdate: contactToUpdate }
+      data: {contact: contactToUpdate }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -39,9 +39,9 @@ export class ListContactComponent implements OnInit {
     });
   }
 
-  public openDialogCreateContact(): void {
+  public openDialogCreateContact(contactToUpdate : Contact): void {
     const dialogRef = this.dialog.open(FormContactComponent, {
-      data: {contactToUpdate: {} }
+      data: {contact: contactToUpdate}
     });
 
     dialogRef.afterClosed().subscribe(result => {

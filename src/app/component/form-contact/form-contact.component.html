@@ -4,30 +4,38 @@
     </mat-header>
     <form [formGroup]="formContact">
         <mat-content>
-            <mat-form-field>
-                <input type="hidden" mat-input formControlName="id" [ngModel]="contactToUpdate.id">
-            </mat-form-field>
-            <mat-form-field>
-                <input type="text" mat-input formControlName="direction">
-            </mat-form-field>
-            <mat-form-field>
-                <input type="text" mat-input formControlName="nom">
-            </mat-form-field>
-            <mat-form-field>
-                <input type="text" mat-input formControlName="fonction">
-            </mat-form-field>
-            <mat-form-field>
-                <input type="text" mat-input formControlName="posteTel">
-            </mat-form-field>
-            <mat-form-field>
-                <input type="text" mat-input formControlName="numeroOrdre">
-            </mat-form-field>
+            <!-- <mat-form-field appearance="fill">
+                <mat-label>Input</mat-label>
+                <input type="hidden" matInput formControlName="id" [ngModel]="contactToUpdate.id">
+            </mat-form-field> -->
+            <div class="formulaire">
+                <mat-form-field appearance="fill">
+                    <mat-label>Entité</mat-label>
+                    <input type="text" matInput formControlName="direction">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Nom</mat-label>
+                    <input type="text" matInput name="nom" formControlName="nom">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Fonction</mat-label>
+                    <input type="text" matInput formControlName="fonction">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Poste</mat-label>
+                    <input type="text" matInput formControlName="posteTel">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>N° Ordre</mat-label>
+                    <input type="number" matInput formControlName="numOrdre">
+                </mat-form-field>
+            </div>
         </mat-content>
 
         <mat-actions>
-            <button mat-button type="submit" class="btn btn-danger" mat-dialog-close >Annuler</button>
-            <button *ngIf="contactToUpdate" mat-button type="submit" class="btn btn-success">Mettre à jour</button>
-            <button *ngIf="!contactToUpdate" mat-button type="submit" class="btn btn-success">Ajouter le contact</button>
+            <button mat-button type="submit" class="btn btn-danger" mat-raised-button mat-dialog-close >Annuler</button>
+            <button *ngIf="contactToUpdate"color="primary" mat-raised-button type="submit" class="btn btn-success" (click)="updateContact()">Mettre à jour</button>
+            <button *ngIf="!contactToUpdate" color="primary" mat-raised-button type="submit" class="btn btn-success">Ajouter le contact</button>
         </mat-actions>
     </form>
 </mat-card>

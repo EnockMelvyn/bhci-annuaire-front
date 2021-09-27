@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Contact } from 'src/app/model/contact';
 import { ContactService } from 'src/app/service/contact.service';
 
@@ -11,15 +12,16 @@ import { ContactService } from 'src/app/service/contact.service';
 })
 export class FormContactComponent implements OnInit {
 
-  contactToUpdate: Contact = {}
+  contactToUpdate: Contact 
   formContact : FormGroup
-  constructor(private formBuilder: FormBuilder, private contactService: ContactService) { 
-    
+  constructor(private formBuilder: FormBuilder, private contactService: ContactService,
+    @Inject(MAT_DIALOG_DATA) public data: {contact: Contact}) { 
+    this.contactToUpdate = data.contact
     console.log(this.contactToUpdate)
     this.formContact= this.formBuilder.group({
       idContact: [this.contactToUpdate.id],
       direction : [this.contactToUpdate.direction, Validators.required],
-      nom: ["test", Validators.required],
+      nom: [this.contactToUpdate.nom, Validators.required],
       fonction: [this.contactToUpdate.fonction, Validators.required],
       posteTel: [this.contactToUpdate.posteTel, Validators.required],
       numOrdre:[this.contactToUpdate.numOrdre, Validators.required]
@@ -41,11 +43,13 @@ export class FormContactComponent implements OnInit {
     }
   }
 
-  public updateContact(idContact: number): void{
+  public updateContact(): void{
     this.composeContact()
     this.contactService.updateContact(this.formContact.get('idContact')?.value,this.contactToUpdate ).subscribe(
       (response: Contact) => {
         this.contactToUpdate = response;
+        alert('Contact mis à jour')
+        window.close()
       },
       (error: HttpErrorResponse) => {
         alert(error.message)
